@@ -249,7 +249,29 @@ public:
             return temp;
            
         }
-       
+        void reverse()
+        {
+            if (head == nullptr || head->next == head)
+            {
+                return;
+            }
+
+            Node* prev = nullptr;
+            Node* curr = head;
+            Node* next = nullptr;
+
+            while (curr != head)
+            {
+                next = curr->next;
+                curr->next = prev;
+                prev = curr;
+                curr = next;
+            }
+
+            head = prev;
+            prev->next = curr;
+        }
+            
 };
 
     

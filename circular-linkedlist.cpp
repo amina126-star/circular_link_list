@@ -271,7 +271,28 @@ public:
             head = prev;
             prev->next = curr;
         }
-            
+     void deleteNode(int data)
+{
+    if (!head)
+        return;
+    if (head->data == data)
+    {
+        deleteAtHead();
+        return;
+    }
+    Node* temp = head;
+    while (temp->next != head)
+    {
+        if (temp->next->data == data)
+        {
+            Node* nodeToDelete = temp->next;
+            temp->next = temp->next->next;
+            delete nodeToDelete;
+            return;
+        }
+        temp = temp->next;
+    }
+}       
 };
 
     
